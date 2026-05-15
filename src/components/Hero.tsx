@@ -2,116 +2,113 @@
 import React from "react";
 import { PreventuraIcon } from "./PreventuraLogo";
 
-function PhoneMockup() {
+function PhoneMockupLarge() {
   return (
-    <div className="relative w-[280px] h-[560px] mx-auto">
-      {/* Phone frame */}
+    <div className="relative w-[300px] h-[600px] mx-auto">
       <div
-        className="absolute inset-0 rounded-[40px] border-2 border-white/10 overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.05)]"
-        style={{
-          background: "linear-gradient(160deg, #0d1f38 0%, #050d1a 100%)",
-        }}
+        className="absolute inset-0 rounded-[44px] border border-white/[0.12] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.05),inset_0_0_0_1px_rgba(255,255,255,0.04)]"
+        style={{ background: "linear-gradient(160deg, #0e2040 0%, #060f1e 100%)" }}
       >
+        {/* Notch */}
+        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full z-10" />
+
         {/* Status bar */}
-        <div className="flex justify-between items-center px-6 pt-4 pb-2">
-          <span className="text-white text-xs font-semibold">9:41</span>
-          <div className="w-[100px] h-[26px] bg-black rounded-full" />
-          <div className="flex gap-1 items-center">
-            <div className="flex gap-0.5">
-              {[3,4,4,5].map((h, i) => (
-                <div key={i} className="w-1 rounded-sm bg-white/80" style={{ height: h * 2 + 6 }} />
-              ))}
-            </div>
-            <svg className="w-4 h-4 text-white/80 ml-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-            <div className="w-6 h-3 border border-white/70 rounded-sm ml-1 relative">
-              <div className="absolute right-0.5 top-0.5 bottom-0.5 w-3 bg-white/90 rounded-sm" />
-            </div>
+        <div className="flex justify-between items-center px-6 pt-5 pb-2 text-white/60 text-[11px]">
+          <span className="font-semibold">9:41</span>
+          <div className="flex gap-1 items-end">
+            {[3,4,5,4].map((h, i) => (
+              <div key={i} className="w-1 bg-white/60 rounded-sm" style={{ height: h * 2.5 }} />
+            ))}
           </div>
         </div>
 
         {/* App header */}
-        <div className="flex justify-between items-center px-5 py-2">
+        <div className="flex justify-between items-center px-5 pt-1 pb-2">
           <div className="flex items-center gap-2">
-            <PreventuraIcon width={20} height={20} />
-            <span className="text-white text-xs font-bold tracking-wide">PREVENTURA</span>
+            <PreventuraIcon width={22} height={22} />
+            <span className="text-white text-xs font-bold tracking-widest uppercase">Preventura</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-blue-600/30 border border-blue-500/30 rounded-full px-2.5 py-1">
-            <span className="text-blue-300 text-[10px] font-semibold">+ Add test</span>
+          <div className="flex items-center gap-1.5 border border-blue-500/30 bg-blue-500/10 rounded-full px-3 py-1">
+            <span className="text-[10px] text-blue-300 font-semibold">+ Add test</span>
           </div>
         </div>
 
         {/* Greeting */}
-        <div className="px-5 pt-1">
-          <p className="text-white/50 text-xs">Hello,</p>
-          <h3 className="text-white font-bold text-lg tracking-tight">Markus</h3>
+        <div className="px-5 pt-1 pb-0">
+          <p className="text-white/40 text-xs">Hello,</p>
+          <h3 className="text-white font-black text-xl tracking-tight">Markus</h3>
         </div>
 
-        {/* Score circle */}
-        <div className="flex flex-col items-center py-4">
-          <div className="relative w-[140px] h-[140px]">
-            <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 140 140">
-              <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="8" />
-              <circle cx="70" cy="70" r="60" fill="none" stroke="#176ADD" strokeWidth="8"
-                strokeLinecap="round" strokeDasharray="376.99" strokeDashoffset="94" />
-              <circle cx="70" cy="70" r="60" fill="none" stroke="#22c55e" strokeWidth="8"
-                strokeLinecap="round" strokeDasharray="376.99" strokeDashoffset="270"
-                opacity="0.6" />
+        {/* Score ring */}
+        <div className="flex justify-center py-5">
+          <div className="relative w-[150px] h-[150px]">
+            <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 150 150">
+              <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="9" />
+              <circle cx="75" cy="75" r="64" fill="none" stroke="url(#heroScoreGrad)" strokeWidth="9"
+                strokeLinecap="round" strokeDasharray="402.12" strokeDashoffset="100" />
+              <defs>
+                <linearGradient id="heroScoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#176ADD" />
+                  <stop offset="100%" stopColor="#22c55e" />
+                </linearGradient>
+              </defs>
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-white/60 text-[10px] font-medium uppercase tracking-widest">HEALTH SCORE</span>
-              <span className="text-white font-black text-4xl leading-none mt-0.5">76</span>
-              <span className="text-white/40 text-xs">/100</span>
-              <div className="mt-1 bg-green-500/20 border border-green-500/30 rounded-full px-2 py-0.5">
-                <span className="text-green-400 text-[10px] font-semibold">+11 since last test</span>
+              <span className="text-white/40 text-[9px] uppercase tracking-widest font-semibold">Health Score</span>
+              <span className="text-white font-black text-[42px] leading-none mt-1">76</span>
+              <span className="text-white/30 text-[11px]">/100</span>
+              <div className="mt-1.5 flex items-center gap-1 bg-green-500/15 border border-green-500/25 rounded-full px-2.5 py-0.5">
+                <svg className="w-2.5 h-2.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 10l7-7 7 7" />
+                </svg>
+                <span className="text-green-400 text-[9px] font-bold">+11 since last test</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Potential for improvement */}
-        <div className="mx-4 glass rounded-2xl p-3 mb-3">
-          <div className="text-white/50 text-[10px] font-medium uppercase tracking-wider mb-2">Potential For Improvement</div>
-          <div className="flex justify-between items-center mb-2">
-            <div>
-              <div className="text-white/40 text-[9px]">CURRENT</div>
-              <div className="text-white font-bold text-base">76</div>
+        {/* Improvement card */}
+        <div className="mx-4 mb-3 rounded-2xl border border-white/[0.06] p-3" style={{ background: "rgba(255,255,255,0.04)" }}>
+          <div className="text-white/30 text-[9px] uppercase tracking-widest mb-2">Potential For Improvement</div>
+          <div className="flex items-center gap-2">
+            <div className="text-center shrink-0">
+              <div className="text-white/30 text-[8px] uppercase">Current</div>
+              <div className="text-white font-black text-lg leading-tight">76</div>
             </div>
-            <div className="flex-1 mx-3">
-              <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-blue-500 to-green-400 rounded-full" style={{ width: "76%" }} />
+            <div className="flex-1">
+              <div className="h-1.5 bg-white/[0.07] rounded-full overflow-hidden mb-1">
+                <div className="h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" style={{ width: "76%" }} />
               </div>
-              <div className="h-1.5 bg-white/10 rounded-full overflow-hidden mt-1">
-                <div className="h-full bg-gradient-to-r from-blue-500/50 to-green-400/50 rounded-full" style={{ width: "83%" }} />
+              <div className="h-1.5 bg-white/[0.07] rounded-full overflow-hidden">
+                <div className="h-full rounded-full" style={{ width: "83%", background: "linear-gradient(90deg, rgba(23,106,221,0.5), #22c55e)" }} />
               </div>
             </div>
-            <div>
-              <div className="text-white/40 text-[9px]">PROJECTED</div>
-              <div className="text-white font-bold text-base">83</div>
+            <div className="text-center shrink-0">
+              <div className="text-white/30 text-[8px] uppercase">Projected</div>
+              <div className="text-green-400 font-black text-lg leading-tight">83</div>
             </div>
-            <div className="ml-2 bg-green-500 rounded-full w-7 h-7 flex items-center justify-center">
-              <span className="text-white text-[10px] font-bold">+7</span>
+            <div className="w-7 h-7 rounded-full bg-green-500 flex items-center justify-center shrink-0">
+              <span className="text-white text-[9px] font-black">+7</span>
             </div>
           </div>
         </div>
 
         {/* Top impact */}
-        <div className="mx-4 glass rounded-2xl p-3">
-          <div className="flex justify-between items-center">
-            <div className="text-white/50 text-[10px] font-medium uppercase tracking-wider">Top 3 Impact</div>
-            <svg className="w-3.5 h-3.5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="mx-4 rounded-2xl border border-white/[0.06] p-3" style={{ background: "rgba(255,255,255,0.04)" }}>
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-white/30 text-[9px] uppercase tracking-widest">Top 3 Impact</span>
+            <svg className="w-3 h-3 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
-          <div className="text-white/30 text-[9px] mb-2">Ranked by weighted impact on total score</div>
+          <div className="text-white/20 text-[8px] mb-2">Ranked by weighted impact on score</div>
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-white/80 text-[11px] font-semibold">Vitamin D</div>
-              <div className="text-white/40 text-[9px]">24 → ≥ 30 ng/ml</div>
+              <div className="text-white font-semibold text-xs">Vitamin D</div>
+              <div className="text-white/30 text-[9px]">24 ng/ml → ≥ 30 ng/ml</div>
             </div>
             <div className="bg-green-500 rounded-full px-2 py-0.5">
-              <span className="text-white text-[10px] font-bold">+3</span>
+              <span className="text-white text-[9px] font-bold">+3</span>
             </div>
           </div>
         </div>
@@ -120,150 +117,157 @@ function PhoneMockup() {
   );
 }
 
-function FloatingBiomarkerCard({ label, value, unit, status, delay }: {
-  label: string; value: string; unit: string; status: "optimal" | "notice"; delay: string;
-}) {
-  const isOptimal = status === "optimal";
+function FloatingCard({ children, className = "", style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
     <div
-      className="glass rounded-xl px-3 py-2.5 shadow-xl border"
-      style={{
-        borderColor: isOptimal ? "rgba(34,197,94,0.3)" : "rgba(251,146,60,0.3)",
-        animationDelay: delay,
-        animation: "float 7s ease-in-out infinite",
-      }}
+      className={`absolute rounded-2xl border border-white/[0.1] backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] ${className}`}
+      style={{ background: "rgba(13,31,56,0.85)", ...style }}
     >
-      <div className="flex items-center gap-2">
-        <div className={`w-1.5 h-1.5 rounded-full ${isOptimal ? "bg-green-400" : "bg-orange-400"}`} />
-        <span className="text-white/60 text-xs">{label}</span>
-      </div>
-      <div className="flex items-baseline gap-1 mt-0.5">
-        <span className="text-white font-bold text-sm">{value}</span>
-        <span className="text-white/40 text-[10px]">{unit}</span>
-      </div>
-    </div>
-  );
-}
-
-function RetestCard() {
-  return (
-    <div className="glass rounded-xl p-3 shadow-xl border border-blue-500/20 min-w-[160px]"
-      style={{ animation: "float 9s ease-in-out infinite", animationDelay: "-1s" }}>
-      <div className="flex items-center gap-2 mb-1.5">
-        <div className="w-6 h-6 bg-blue-500/20 rounded-lg flex items-center justify-center">
-          <svg className="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-        </div>
-        <span className="text-white/60 text-[10px] font-medium">Next Retest</span>
-      </div>
-      <div className="text-white font-bold text-xs">In 24 days</div>
-      <div className="text-white/40 text-[10px] mt-0.5">Preventura Core</div>
+      {children}
     </div>
   );
 }
 
 export default function Hero() {
   return (
-    <section className="hero-gradient relative min-h-screen pt-[68px] overflow-hidden">
-      {/* Background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage: "linear-gradient(rgba(23,106,221,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(23,106,221,0.5) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+    <section className="relative min-h-screen pt-[80px] overflow-hidden flex flex-col" style={{
+      background: "radial-gradient(ellipse 100% 70% at 50% -5%, rgba(23,106,221,0.28) 0%, transparent 65%), radial-gradient(ellipse 70% 50% at 80% 60%, rgba(0,212,232,0.07) 0%, transparent 60%), #050d1a"
+    }}>
+      {/* Grid */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: "linear-gradient(rgba(23,106,221,1) 1px, transparent 1px), linear-gradient(90deg, rgba(23,106,221,1) 1px, transparent 1px)",
+        backgroundSize: "70px 70px",
+      }} />
 
-      {/* Glow orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-[0.08]"
-        style={{ background: "radial-gradient(circle, #176ADD 0%, transparent 70%)" }} />
-      <div className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full opacity-[0.05]"
-        style={{ background: "radial-gradient(circle, #00d4e8 0%, transparent 70%)" }} />
+      <div className="relative z-10 flex flex-col items-center text-center px-6 pt-12 lg:pt-16 flex-1">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-7">
+          <div className="w-1.5 h-1.5 rounded-full bg-blue-400 pulse-dot" />
+          <span className="text-blue-300 text-xs font-semibold uppercase tracking-widest">Digital Prevention Platform</span>
+        </div>
 
-      <div className="max-w-[1200px] mx-auto px-6 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Copy */}
-          <div className="text-center lg:text-left">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-6">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-400 pulse-dot" />
-              <span className="text-blue-300 text-xs font-semibold uppercase tracking-widest">
-                Digital Prevention Platform
-              </span>
-            </div>
+        {/* Headline — Habitline-style: very large, centered, bold */}
+        <h1 className="text-5xl sm:text-6xl lg:text-[80px] xl:text-[88px] font-black leading-[1.0] tracking-[-0.04em] text-white mb-6 max-w-[900px]">
+          Understand your health{" "}
+          <br className="hidden sm:block" />
+          <span className="gradient-text">before problems</span>
+          <br className="hidden sm:block" />
+          become visible.
+        </h1>
 
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] tracking-[-0.03em] text-white mb-6">
-              Understand your health{" "}
-              <span className="gradient-text">before problems</span>{" "}
-              become visible.
-            </h1>
+        {/* Subheadline */}
+        <p className="text-white/50 text-lg sm:text-xl leading-relaxed mb-8 max-w-[600px]">
+          At-home biomarker testing, certified lab analysis and a premium app — turning blood values into a clear Health Score, prioritized insights and a personal retest plan.
+        </p>
 
-            {/* Subheadline */}
-            <p className="text-[#94a3b8] text-lg leading-relaxed mb-8 max-w-[520px] mx-auto lg:mx-0">
-              Preventura combines at-home biomarker testing, certified lab analysis and a premium app experience — turning your blood values into a clear Health Score, prioritized insights and a personal retest plan.
-            </p>
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-3 mb-6">
+          <a href="#early-access"
+            className="inline-flex items-center justify-center gap-2 bg-[#176ADD] hover:bg-[#1e7ae8] text-white font-bold px-8 py-4 rounded-full text-base transition-all duration-200 shadow-[0_8px_32px_rgba(23,106,221,0.45)] hover:shadow-[0_12px_40px_rgba(23,106,221,0.6)] hover:-translate-y-0.5">
+            Get Early Access
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="#how-it-works"
+            className="inline-flex items-center justify-center gap-2 bg-white/[0.07] hover:bg-white/[0.12] border border-white/10 text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-200 hover:-translate-y-0.5">
+            <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            See how it works
+          </a>
+        </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
-              <a href="#early-access" className="btn-primary text-base">
-                Get Early Access
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-              <a href="#how-it-works" className="btn-secondary text-base">
-                See how it works
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </a>
-            </div>
+        {/* Trust micro */}
+        <div className="flex flex-wrap gap-x-5 gap-y-2 justify-center text-white/30 text-sm mb-12">
+          {["At-home sample collection", "Lab-based analysis", "App-based insights"].map((t, i) => (
+            <span key={i} className="flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-green-500/70" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              {t}
+            </span>
+          ))}
+        </div>
 
-            {/* Trust microcopy */}
-            <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center lg:justify-start text-white/40 text-sm">
-              {["At-home sample collection", "Lab-based analysis", "App-based insights"].map((t, i) => (
-                <span key={i} className="flex items-center gap-1.5">
-                  <svg className="w-3.5 h-3.5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  {t}
-                </span>
-              ))}
-            </div>
+        {/* Phone composition — Habitline style: large centered with floating cards */}
+        <div className="relative w-full max-w-[700px] mx-auto pb-0" style={{ minHeight: 520 }}>
+          {/* Glow behind phone */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-25 blur-3xl pointer-events-none"
+            style={{ background: "radial-gradient(circle, #176ADD 0%, transparent 70%)" }} />
+
+          {/* Phone */}
+          <div className="float-animation relative z-10 flex justify-center">
+            <PhoneMockupLarge />
           </div>
 
-          {/* Right: App visual */}
-          <div className="relative flex items-center justify-center mt-8 lg:mt-0">
-            {/* Main phone */}
-            <div className="float-animation relative z-10">
-              <PhoneMockup />
+          {/* Floating card: ApoB — left */}
+          <FloatingCard className="hidden sm:block left-0 top-[80px] z-20 px-4 py-3 min-w-[140px]"
+            style={{ animation: "float 7s ease-in-out infinite", animationDelay: "-1s" } as React.CSSProperties}>
+            <div className="flex items-center gap-2 mb-1.5">
+              <div className="w-2 h-2 rounded-full bg-green-400" />
+              <span className="text-white/50 text-xs">ApoB</span>
+              <span className="ml-auto text-[10px] text-green-400 font-semibold bg-green-500/15 rounded-full px-1.5 py-0.5">Optimal</span>
             </div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-white font-black text-xl">82</span>
+              <span className="text-white/30 text-xs">mg/dl</span>
+            </div>
+          </FloatingCard>
 
-            {/* Floating cards */}
-            <div className="absolute left-0 top-[15%] z-20 hidden sm:block">
-              <FloatingBiomarkerCard label="ApoB" value="82" unit="mg/dl" status="optimal" delay="-1s" />
+          {/* Floating card: hs-CRP — right */}
+          <FloatingCard className="hidden sm:block right-0 top-[120px] z-20 px-4 py-3 min-w-[150px]"
+            style={{ animation: "float 8.5s ease-in-out infinite", animationDelay: "-3s" } as React.CSSProperties}>
+            <div className="flex items-center gap-2 mb-1.5">
+              <div className="w-2 h-2 rounded-full bg-orange-400" />
+              <span className="text-white/50 text-xs">hs-CRP</span>
+              <span className="ml-auto text-[10px] text-orange-400 font-semibold bg-orange-500/15 rounded-full px-1.5 py-0.5">Monitor</span>
             </div>
-            <div className="absolute right-0 top-[25%] z-20 hidden sm:block">
-              <FloatingBiomarkerCard label="hs-CRP" value="1.2" unit="mg/l" status="notice" delay="-3s" />
+            <div className="flex items-baseline gap-1">
+              <span className="text-white font-black text-xl">1.8</span>
+              <span className="text-white/30 text-xs">mg/l</span>
             </div>
-            <div className="absolute left-2 bottom-[20%] z-20 hidden sm:block">
-              <FloatingBiomarkerCard label="Vitamin D" value="24" unit="ng/ml" status="notice" delay="-5s" />
-            </div>
-            <div className="absolute right-0 bottom-[10%] z-20 hidden sm:block">
-              <RetestCard />
-            </div>
+          </FloatingCard>
 
-            {/* Glow behind phone */}
-            <div className="absolute inset-0 rounded-full opacity-20 blur-3xl"
-              style={{ background: "radial-gradient(circle at center, #176ADD 0%, transparent 70%)" }} />
-          </div>
+          {/* Floating card: Retest — left bottom */}
+          <FloatingCard className="hidden sm:block left-4 bottom-[80px] z-20 px-4 py-3 min-w-[170px]"
+            style={{ animation: "float 9s ease-in-out infinite", animationDelay: "-5s" } as React.CSSProperties}>
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-blue-500/20 border border-blue-500/25 flex items-center justify-center shrink-0">
+                <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <div className="text-white font-bold text-xs">Next Retest</div>
+                <div className="text-blue-400 text-[11px]">In 24 days</div>
+              </div>
+            </div>
+          </FloatingCard>
+
+          {/* Floating card: Vitamin D — right bottom */}
+          <FloatingCard className="hidden sm:block right-0 bottom-[100px] z-20 px-4 py-3 min-w-[155px]"
+            style={{ animation: "float 7.5s ease-in-out infinite", animationDelay: "-2s" } as React.CSSProperties}>
+            <div className="flex items-center gap-2 mb-1.5">
+              <div className="w-2 h-2 rounded-full bg-yellow-400" />
+              <span className="text-white/50 text-xs">Vitamin D</span>
+            </div>
+            <div className="flex items-baseline gap-1 mb-1.5">
+              <span className="text-white font-black text-xl">24</span>
+              <span className="text-white/30 text-xs">ng/ml</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-[10px]">
+              <span className="text-white/30">Target</span>
+              <span className="text-green-400 font-semibold">≥ 30</span>
+              <div className="ml-auto bg-green-500 rounded-full px-1.5 py-0.5 font-bold text-white">+3</div>
+            </div>
+          </FloatingCard>
         </div>
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32"
+      <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
         style={{ background: "linear-gradient(transparent, #050d1a)" }} />
     </section>
   );

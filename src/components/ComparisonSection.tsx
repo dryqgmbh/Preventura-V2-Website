@@ -15,12 +15,12 @@ const rows: { label: string; lab: CellValue; app: CellValue; preventura: CellVal
   { label: "Certified lab analysis", lab: true, app: false, preventura: true },
 ];
 
-function Cell({ value }: { value: boolean | "partial" }) {
+function Cell({ value, highlight = false }: { value: CellValue; highlight?: boolean }) {
   if (value === true)
     return (
       <div className="flex justify-center">
-        <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-          <svg className="w-3.5 h-3.5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+        <div className={`w-7 h-7 rounded-full flex items-center justify-center ${highlight ? "bg-blue-500" : "bg-green-500/15"}`}>
+          <svg className={`w-4 h-4 ${highlight ? "text-white" : "text-green-500"}`} fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
           </svg>
         </div>
@@ -29,15 +29,15 @@ function Cell({ value }: { value: boolean | "partial" }) {
   if (value === "partial")
     return (
       <div className="flex justify-center">
-        <div className="w-6 h-6 rounded-full bg-yellow-500/15 flex items-center justify-center">
-          <span className="text-yellow-400 text-xs font-bold">~</span>
+        <div className="w-7 h-7 rounded-full bg-yellow-500/10 flex items-center justify-center">
+          <span className="text-yellow-500 text-sm font-bold">~</span>
         </div>
       </div>
     );
   return (
     <div className="flex justify-center">
-      <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center">
-        <svg className="w-3.5 h-3.5 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+      <div className="w-7 h-7 rounded-full bg-black/[0.04] flex items-center justify-center">
+        <svg className="w-4 h-4 text-[#cbd5e1]" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
         </svg>
       </div>
@@ -48,69 +48,64 @@ function Cell({ value }: { value: boolean | "partial" }) {
 export default function ComparisonSection() {
   const ref = useScrollReveal();
   return (
-    <section className="py-24 px-6" style={{ background: "#0a1628" }}>
+    /* Light section */
+    <section className="py-24 px-6" style={{ background: "#f0f4fa" }}>
       <div className="max-w-[900px] mx-auto" ref={ref}>
         <div className="text-center mb-12 observe-fade">
-          <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-5">
-            <span className="text-blue-300 text-xs font-semibold uppercase tracking-widest">Comparison</span>
+          <div className="inline-flex items-center gap-2 bg-blue-600/15 border border-blue-500/25 rounded-full px-4 py-1.5 mb-5">
+            <span className="text-blue-700 text-xs font-semibold uppercase tracking-widest">Comparison</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-[60px] font-black text-[#0a1628] tracking-[-0.03em] leading-tight mb-4">
             More than a{" "}
-            <span className="gradient-text">lab report.</span>
+            <span style={{ background: "linear-gradient(135deg, #176ADD, #22c55e)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              lab report.
+            </span>
           </h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
+          <p className="text-[#475569] text-xl max-w-xl mx-auto">
             Most people have either raw lab data or vague wellness apps. Preventura is the integrated layer between them.
           </p>
         </div>
 
-        <div className="glass rounded-2xl border border-white/[0.06] overflow-hidden observe-fade" style={{ transitionDelay: "100ms" }}>
-          {/* Header */}
-          <div className="grid grid-cols-4 border-b border-white/[0.06]">
-            <div className="p-4" />
+        <div className="rounded-3xl overflow-hidden border border-black/[0.07] shadow-[0_8px_40px_rgba(0,0,0,0.08)] observe-fade bg-white" style={{ transitionDelay: "100ms" }}>
+          {/* Header row */}
+          <div className="grid grid-cols-4 border-b border-black/[0.06]" style={{ background: "#f8fafc" }}>
+            <div className="p-5" />
             {[
-              { label: "Traditional\nLab Report", sub: "" },
-              { label: "Generic\nHealth App", sub: "" },
-              { label: "Preventura", sub: "All-in-one", highlight: true },
+              { label: "Traditional\nLab Report", dark: false },
+              { label: "Generic\nHealth App", dark: false },
+              { label: "Preventura", dark: true },
             ].map((col, i) => (
-              <div
-                key={i}
-                className={`p-4 text-center border-l border-white/[0.06] ${col.highlight ? "bg-blue-600/10" : ""}`}
-              >
-                <div className={`font-bold text-sm whitespace-pre-line ${col.highlight ? "text-white" : "text-white/50"}`}>
+              <div key={i} className={`p-5 text-center border-l border-black/[0.05] ${col.dark ? "bg-[#176ADD]" : ""}`}>
+                <div className={`font-bold text-sm whitespace-pre-line ${col.dark ? "text-white" : "text-[#475569]"}`}>
                   {col.label}
                 </div>
-                {col.sub && (
-                  <div className="text-blue-400 text-xs mt-0.5">{col.sub}</div>
-                )}
+                {col.dark && <div className="text-blue-200 text-xs mt-0.5">All-in-one</div>}
               </div>
             ))}
           </div>
 
-          {/* Rows */}
           {rows.map((row, i) => (
-            <div
-              key={i}
-              className={`grid grid-cols-4 border-b border-white/[0.04] last:border-0 ${i % 2 === 0 ? "" : "bg-white/[0.01]"}`}
-            >
-              <div className="p-4 text-white/60 text-sm font-medium">{row.label}</div>
-              <div className="p-4 border-l border-white/[0.04] flex items-center justify-center">
+            <div key={i} className={`grid grid-cols-4 border-b border-black/[0.04] last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-[#f8fafc]"}`}>
+              <div className="p-4 pl-5 text-[#334155] text-sm font-medium">{row.label}</div>
+              <div className="p-4 border-l border-black/[0.04] flex items-center justify-center">
                 <Cell value={row.lab} />
               </div>
-              <div className="p-4 border-l border-white/[0.04] flex items-center justify-center">
+              <div className="p-4 border-l border-black/[0.04] flex items-center justify-center">
                 <Cell value={row.app} />
               </div>
-              <div className="p-4 border-l border-white/[0.04] bg-blue-600/[0.05] flex items-center justify-center">
-                <Cell value={row.preventura} />
+              <div className="p-4 border-l border-black/[0.04] flex items-center justify-center bg-blue-50/50">
+                <Cell value={row.preventura} highlight />
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-8 text-center observe-fade" style={{ transitionDelay: "200ms" }}>
-          <a href="#early-access" className="btn-primary">
+          <a href="#early-access"
+            className="inline-flex items-center gap-2 bg-[#176ADD] hover:bg-[#1e7ae8] text-white font-bold px-8 py-4 rounded-full text-base transition-all shadow-[0_8px_32px_rgba(23,106,221,0.3)] hover:-translate-y-0.5">
             Start with Preventura
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </a>
         </div>

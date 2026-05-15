@@ -10,39 +10,27 @@ function AnimatedScoreRing({ score, animated }: { score: number; animated: boole
   return (
     <div className="relative w-[220px] h-[220px]">
       <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 220 220">
-        {/* Track */}
-        <circle cx="110" cy="110" r={radius} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="12" />
-        {/* Background ring segments */}
-        <circle cx="110" cy="110" r={radius} fill="none" stroke="rgba(23,106,221,0.12)" strokeWidth="12"
+        <circle cx="110" cy="110" r={radius} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="12" />
+        <circle cx="110" cy="110" r={radius} fill="none" stroke="rgba(23,106,221,0.1)" strokeWidth="12"
           strokeDasharray={circumference} strokeDashoffset="0" />
-        {/* Score ring */}
         <circle
-          cx="110"
-          cy="110"
-          r={radius}
-          fill="none"
-          stroke="url(#scoreGradient)"
-          strokeWidth="12"
-          strokeLinecap="round"
+          cx="110" cy="110" r={radius} fill="none" stroke="url(#scoreGrad2)"
+          strokeWidth="12" strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={animated ? offset : circumference}
           style={{ transition: "stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1)" }}
         />
         <defs>
-          <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="scoreGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#176ADD" />
             <stop offset="50%" stopColor="#00d4e8" />
             <stop offset="100%" stopColor="#22c55e" />
           </linearGradient>
         </defs>
       </svg>
-
-      {/* Inner content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-white/40 text-xs uppercase tracking-widest font-medium">Health Score</span>
-        <span className="text-white font-black text-6xl leading-none mt-1">
-          {animated ? score : 0}
-        </span>
+        <span className="text-white font-black text-6xl leading-none mt-1">{animated ? score : 0}</span>
         <span className="text-white/30 text-sm">/100</span>
         <div className="mt-2 flex items-center gap-1.5 bg-green-500/15 border border-green-500/25 rounded-full px-3 py-1">
           <svg className="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,16 +62,18 @@ export default function ScoreSection() {
   return (
     <section id="score" className="py-24 px-6" style={{ background: "#050d1a" }}>
       <div className="max-w-[1200px] mx-auto" ref={ref}>
-        <div className="text-center mb-14 observe-fade">
+
+        {/* Large section headline — Habitline style */}
+        <div className="text-center mb-16 observe-fade">
           <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-5">
             <span className="text-blue-300 text-xs font-semibold uppercase tracking-widest">Preventura Score</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-[64px] font-black text-white tracking-[-0.03em] leading-tight max-w-4xl mx-auto">
             One score.{" "}
             <span className="gradient-text">Clear priorities.</span>{" "}
             Measurable progress.
           </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+          <p className="text-white/50 text-xl max-w-2xl mx-auto mt-5">
             Instead of reading isolated lab values, you see what matters most now — and how your score changes over time.
           </p>
         </div>
@@ -103,24 +93,18 @@ export default function ScoreSection() {
                 </div>
                 <div className="flex-1">
                   <div className="h-2 bg-white/10 rounded-full overflow-hidden mb-1.5">
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        width: animated ? "76%" : "0%",
-                        background: "linear-gradient(90deg, #176ADD, #00d4e8)",
-                        transition: "width 2s ease-out 0.5s",
-                      }}
-                    />
+                    <div className="h-full rounded-full" style={{
+                      width: animated ? "76%" : "0%",
+                      background: "linear-gradient(90deg, #176ADD, #00d4e8)",
+                      transition: "width 2s ease-out 0.5s",
+                    }} />
                   </div>
                   <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        width: animated ? "83%" : "0%",
-                        background: "linear-gradient(90deg, #176ADD40, #22c55e)",
-                        transition: "width 2s ease-out 0.8s",
-                      }}
-                    />
+                    <div className="h-full rounded-full" style={{
+                      width: animated ? "83%" : "0%",
+                      background: "linear-gradient(90deg, rgba(23,106,221,0.4), #22c55e)",
+                      transition: "width 2s ease-out 0.8s",
+                    }} />
                   </div>
                 </div>
                 <div className="text-center">
@@ -135,35 +119,21 @@ export default function ScoreSection() {
 
           {/* Copy */}
           <div className="space-y-6 observe-fade" style={{ transitionDelay: "150ms" }}>
-            <div>
-              <h3 className="text-white font-bold text-xl mb-3">Your current health baseline, quantified.</h3>
-              <p className="text-white/50 leading-relaxed">
-                The Preventura Score summarizes selected biomarker results into a clear, trackable signal between 0 and 100. It highlights where improvement potential exists — not just which values are out of range.
-              </p>
-            </div>
+            <h3 className="text-white font-bold text-2xl">Your current health baseline, quantified.</h3>
+            <p className="text-white/50 leading-relaxed text-lg">
+              The Preventura Score summarizes selected biomarker results into a clear, trackable signal between 0 and 100. It highlights where improvement potential exists — not just which values are out of range.
+            </p>
 
-            <div className="grid grid-cols-1 gap-4">
+            <div className="space-y-5">
               {[
-                {
-                  icon: "🎯",
-                  title: "Score reflects your actual baseline",
-                  desc: "Calculated from real lab values, not self-reported data or estimates.",
-                },
-                {
-                  icon: "📈",
-                  title: "Tracks improvement over time",
-                  desc: "Every retest updates your score. You can see exactly how much it changed and why.",
-                },
-                {
-                  icon: "🔍",
-                  title: "Shows what to focus on next",
-                  desc: "The score connects directly to your Top 3 Impact areas — so you always know your next best action.",
-                },
+                { icon: "🎯", title: "Score reflects your actual baseline", desc: "Calculated from real lab values, not self-reported data or estimates." },
+                { icon: "📈", title: "Tracks improvement over time", desc: "Every retest updates your score. You can see exactly how much it changed and why." },
+                { icon: "🔍", title: "Shows what to focus on next", desc: "The score connects directly to your Top 3 Impact areas — always your next best action." },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 items-start">
-                  <div className="text-2xl shrink-0 mt-0.5">{item.icon}</div>
+                  <span className="text-2xl shrink-0">{item.icon}</span>
                   <div>
-                    <div className="text-white font-semibold text-sm mb-1">{item.title}</div>
+                    <div className="text-white font-semibold mb-1">{item.title}</div>
                     <div className="text-white/40 text-sm leading-relaxed">{item.desc}</div>
                   </div>
                 </div>
@@ -171,7 +141,8 @@ export default function ScoreSection() {
             </div>
 
             <div className="pt-2">
-              <a href="#early-access" className="btn-primary">
+              <a href="#early-access"
+                className="inline-flex items-center gap-2 bg-[#176ADD] hover:bg-[#1e7ae8] text-white font-bold px-8 py-4 rounded-full text-base transition-all shadow-[0_8px_32px_rgba(23,106,221,0.35)] hover:-translate-y-0.5">
                 Get Your Score
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

@@ -6,7 +6,7 @@ const categories = [
   {
     id: "cardio",
     label: "Heart & Lipids",
-    icon: "❤️",
+    emoji: "❤️",
     color: "#ef4444",
     bg: "rgba(239,68,68,0.1)",
     border: "rgba(239,68,68,0.2)",
@@ -16,7 +16,7 @@ const categories = [
   {
     id: "metabolism",
     label: "Metabolism",
-    icon: "⚡",
+    emoji: "⚡",
     color: "#f59e0b",
     bg: "rgba(245,158,11,0.1)",
     border: "rgba(245,158,11,0.2)",
@@ -26,7 +26,7 @@ const categories = [
   {
     id: "inflammation",
     label: "Inflammation",
-    icon: "🔥",
+    emoji: "🔥",
     color: "#f97316",
     bg: "rgba(249,115,22,0.1)",
     border: "rgba(249,115,22,0.2)",
@@ -36,7 +36,7 @@ const categories = [
   {
     id: "kidney",
     label: "Kidney",
-    icon: "🫘",
+    emoji: "🫘",
     color: "#8b5cf6",
     bg: "rgba(139,92,246,0.1)",
     border: "rgba(139,92,246,0.2)",
@@ -46,7 +46,7 @@ const categories = [
   {
     id: "thyroid",
     label: "Thyroid",
-    icon: "🦋",
+    emoji: "🦋",
     color: "#06b6d4",
     bg: "rgba(6,182,212,0.1)",
     border: "rgba(6,182,212,0.2)",
@@ -56,7 +56,7 @@ const categories = [
   {
     id: "vitamins",
     label: "Vitamins & Minerals",
-    icon: "💊",
+    emoji: "💊",
     color: "#22c55e",
     bg: "rgba(34,197,94,0.1)",
     border: "rgba(34,197,94,0.2)",
@@ -71,38 +71,43 @@ export default function CorePanel() {
   const selected = categories.find((c) => c.id === active) || categories[0];
 
   return (
+    /* Dark section */
     <section id="core" className="py-24 px-6" style={{ background: "#050d1a" }}>
       <div className="max-w-[1200px] mx-auto" ref={ref}>
-        <div className="text-center mb-14 observe-fade">
-          <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-5">
-            <span className="text-blue-300 text-xs font-semibold uppercase tracking-widest">Preventura Core</span>
+        <div className="grid lg:grid-cols-2 gap-12 items-end mb-14">
+          <div className="observe-fade">
+            <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-5">
+              <span className="text-blue-300 text-xs font-semibold uppercase tracking-widest">Preventura Core</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-[60px] font-black text-white tracking-[-0.03em] leading-tight">
+              Your recurring{" "}
+              <span className="gradient-text">health baseline.</span>
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
-            Your recurring{" "}
-            <span className="gradient-text">health baseline.</span>
-          </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-            A focused biomarker panel designed to help you track key signals across metabolism, cardiovascular health, inflammation, liver, kidney, thyroid and vitamin status.
-          </p>
-          <p className="text-white/30 text-sm mt-3">Examples include — exact panel may vary by market and laboratory setup.</p>
+          <div className="observe-fade" style={{ transitionDelay: "100ms" }}>
+            <p className="text-white/50 text-xl leading-relaxed mb-3">
+              A focused biomarker panel tracking key signals across metabolism, cardiovascular health, inflammation, kidney, thyroid and vitamin status.
+            </p>
+            <p className="text-white/25 text-sm">Examples include — exact panel may vary by market and laboratory setup.</p>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-6 observe-fade" style={{ transitionDelay: "100ms" }}>
+        <div id="biomarkers" className="grid lg:grid-cols-5 gap-5 observe-fade" style={{ transitionDelay: "150ms" }}>
           {/* Category tabs */}
-          <div id="biomarkers" className="lg:col-span-2 flex flex-col gap-2">
+          <div className="lg:col-span-2 flex flex-col gap-2">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActive(cat.id)}
-                className={`text-left rounded-xl p-4 border transition-all duration-200 ${
+                className={`text-left rounded-2xl p-4 border transition-all duration-200 ${
                   active === cat.id
                     ? "border-blue-500/40 bg-blue-600/10"
-                    : "border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10"
+                    : "border-white/[0.05] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10"
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-xl">{cat.icon}</span>
-                  <span className={`font-semibold text-sm ${active === cat.id ? "text-white" : "text-white/60"}`}>
+                  <span className="text-xl">{cat.emoji}</span>
+                  <span className={`font-semibold text-sm ${active === cat.id ? "text-white" : "text-white/50"}`}>
                     {cat.label}
                   </span>
                   {active === cat.id && (
@@ -118,32 +123,29 @@ export default function CorePanel() {
           {/* Detail panel */}
           <div
             key={selected.id}
-            className="lg:col-span-3 glass rounded-2xl p-7 border flex flex-col justify-between"
+            className="lg:col-span-3 glass rounded-3xl p-7 border flex flex-col justify-between"
             style={{ borderColor: selected.border }}
           >
             <div>
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4"
-                style={{ background: selected.bg, border: `1px solid ${selected.border}` }}
-              >
-                {selected.icon}
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4"
+                style={{ background: selected.bg, border: `1px solid ${selected.border}` }}>
+                {selected.emoji}
               </div>
               <h3 className="text-white font-bold text-xl mb-2">{selected.label}</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-6">{selected.description}</p>
-
-              <div className="grid grid-cols-2 gap-2">
+              <div className="flex flex-wrap gap-2">
                 {selected.markers.map((m) => (
-                  <div key={m} className="flex items-center gap-2 biomarker-tag w-fit">
+                  <div key={m} className="biomarker-tag flex items-center gap-1.5">
                     <div className="w-1 h-1 rounded-full" style={{ background: selected.color }} />
                     {m}
                   </div>
                 ))}
               </div>
             </div>
-
             <div className="mt-8 pt-5 border-t border-white/[0.06] flex items-center justify-between">
-              <p className="text-white/40 text-xs">Preventura Core covers {categories.length} health categories</p>
-              <a href="#early-access" className="btn-primary text-sm py-2 px-4">
+              <p className="text-white/30 text-xs">{categories.length} health categories covered</p>
+              <a href="#early-access"
+                className="inline-flex items-center gap-1.5 bg-[#176ADD] hover:bg-[#1e7ae8] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-all">
                 Start with Core
               </a>
             </div>

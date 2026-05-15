@@ -4,38 +4,37 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 function RetestCard() {
   return (
-    <div className="glass rounded-2xl p-6 border border-blue-500/25 max-w-sm mx-auto">
-      {/* Calendar header */}
+    <div className="rounded-3xl p-6 border border-[#176ADD]/20 max-w-sm mx-auto"
+      style={{ background: "rgba(23,106,221,0.06)" }}>
+      {/* Header */}
       <div className="flex items-center gap-3 mb-5">
-        <div className="w-10 h-10 bg-blue-600/20 border border-blue-500/30 rounded-xl flex items-center justify-center">
+        <div className="w-11 h-11 bg-blue-600/20 border border-blue-500/30 rounded-2xl flex items-center justify-center">
           <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
-        <div>
+        <div className="flex-1">
           <div className="text-white font-bold text-sm">Next Evaluation</div>
           <div className="text-blue-400 text-xs font-semibold">In 24 days</div>
         </div>
-        <div className="ml-auto">
-          <div className="w-2 h-2 rounded-full bg-blue-400 pulse-dot" />
-        </div>
+        <div className="w-2 h-2 rounded-full bg-blue-400 pulse-dot" />
       </div>
 
-      {/* Kit recommendation */}
-      <div className="bg-blue-600/10 rounded-xl p-4 mb-4 border border-blue-500/15">
-        <div className="text-white/40 text-xs uppercase tracking-wider mb-2">Recommended Kit</div>
+      {/* Kit */}
+      <div className="glass rounded-2xl p-4 mb-4">
+        <div className="text-white/30 text-xs uppercase tracking-wider mb-2">Recommended Kit</div>
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-sm">📦</div>
+          <div className="w-9 h-9 bg-blue-500/15 rounded-xl flex items-center justify-center text-base">📦</div>
           <div>
             <div className="text-white font-semibold text-sm">Preventura Core</div>
-            <div className="text-white/40 text-xs">Full prevention panel</div>
+            <div className="text-white/30 text-xs">Full prevention panel</div>
           </div>
         </div>
       </div>
 
       {/* Priority markers */}
-      <div className="mb-4">
-        <div className="text-white/40 text-xs uppercase tracking-wider mb-2">Priority markers to monitor</div>
+      <div className="mb-5">
+        <div className="text-white/30 text-xs uppercase tracking-wider mb-2">Priority markers</div>
         <div className="flex flex-wrap gap-1.5">
           {["Vitamin D", "Ferritin", "ApoB", "hs-CRP"].map((m) => (
             <span key={m} className="biomarker-tag">{m}</span>
@@ -45,33 +44,24 @@ function RetestCard() {
 
       {/* Timeline */}
       <div className="border-t border-white/[0.06] pt-4">
-        <div className="text-white/40 text-xs uppercase tracking-wider mb-3">Testing history</div>
-        <div className="space-y-2">
+        <div className="text-white/30 text-xs uppercase tracking-wider mb-3">Testing history</div>
+        <div className="space-y-2.5">
           {[
             { date: "Feb 2025", score: 52, label: "Test 1" },
             { date: "Apr 2025", score: 64, label: "Test 2" },
-            { date: "May 2025", score: 76, label: "Test 3 · Now" },
-            { date: "Jun 2025", score: null, label: "Test 4 · Upcoming" },
+            { date: "May 2025", score: 76, label: "Now" },
+            { date: "Jun 2025", score: null, label: "Upcoming" },
           ].map((entry, i) => (
             <div key={i} className="flex items-center gap-3">
-              <div className={`w-2 h-2 rounded-full flex-shrink-0 ${
-                entry.score ? "bg-blue-400" : "bg-white/20"
-              }`} />
-              <span className="text-white/40 text-xs w-20">{entry.date}</span>
-              <div className="flex-1 h-1 bg-white/[0.06] rounded-full overflow-hidden">
+              <div className={`w-2 h-2 rounded-full flex-shrink-0 ${entry.score ? "bg-blue-400" : "bg-white/15"}`} />
+              <span className="text-white/30 text-xs w-20">{entry.date}</span>
+              <div className="flex-1 h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
                 {entry.score && (
-                  <div
-                    className="h-full rounded-full"
-                    style={{
-                      width: `${entry.score}%`,
-                      background: "linear-gradient(90deg, #176ADD, #22c55e)",
-                    }}
-                  />
+                  <div className="h-full rounded-full"
+                    style={{ width: `${entry.score}%`, background: "linear-gradient(90deg, #176ADD, #22c55e)" }} />
                 )}
               </div>
-              <span className={`text-xs font-medium w-20 text-right ${
-                entry.score ? "text-white/70" : "text-white/25"
-              }`}>
+              <span className={`text-xs font-medium w-20 text-right ${entry.score ? "text-white/60" : "text-white/20"}`}>
                 {entry.score ? `${entry.score}/100` : "Scheduled"}
               </span>
             </div>
@@ -85,42 +75,29 @@ function RetestCard() {
 export default function RetestSection() {
   const ref = useScrollReveal();
   return (
-    <section id="retest" className="py-24 px-6" style={{ background: "#050d1a" }}>
+    <section id="retest" className="py-24 px-6" style={{ background: "#0a1628" }}>
       <div className="max-w-[1200px] mx-auto" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-14 items-center">
-          {/* Left: copy */}
           <div className="observe-fade">
             <div className="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-500/20 rounded-full px-4 py-1.5 mb-5">
               <span className="text-blue-300 text-xs font-semibold uppercase tracking-widest">Retest Engine</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-[60px] font-black text-white tracking-[-0.03em] leading-tight mb-6">
               Prevention only works{" "}
               <span className="gradient-text">when you measure again.</span>
             </h2>
-            <p className="text-white/50 text-lg leading-relaxed mb-8">
-              A single data point is just a snapshot. Preventura recommends when to retest, which kit makes sense for your situation, and shows you exactly what changed since your last result.
+            <p className="text-white/50 text-xl leading-relaxed mb-8">
+              A single data point is just a snapshot. Preventura recommends when to retest, which kit makes sense and shows you exactly what changed since your last result.
             </p>
 
-            <div className="space-y-5">
+            <div className="space-y-5 mb-8">
               {[
-                {
-                  icon: "⏱️",
-                  title: "Smart retest timing",
-                  desc: "Based on your markers and progress, Preventura calculates the optimal retest window — not too early, not too late.",
-                },
-                {
-                  icon: "📦",
-                  title: "Kit recommendation",
-                  desc: "Preventura suggests the right kit for your next evaluation, so you're always testing what matters most.",
-                },
-                {
-                  icon: "📊",
-                  title: "Progress comparison",
-                  desc: "See how each biomarker shifted since your last test, and whether your interventions are working.",
-                },
+                { emoji: "⏱️", title: "Smart retest timing", desc: "Based on your markers and progress, Preventura calculates the optimal retest window." },
+                { emoji: "📦", title: "Kit recommendation", desc: "Preventura suggests the right kit for your next evaluation." },
+                { emoji: "📊", title: "Progress comparison", desc: "See how each biomarker shifted and whether your interventions are working." },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4">
-                  <span className="text-2xl shrink-0">{item.icon}</span>
+                  <span className="text-2xl shrink-0">{item.emoji}</span>
                   <div>
                     <div className="text-white font-semibold mb-1">{item.title}</div>
                     <div className="text-white/40 text-sm leading-relaxed">{item.desc}</div>
@@ -129,17 +106,15 @@ export default function RetestSection() {
               ))}
             </div>
 
-            <div className="mt-8">
-              <a href="#early-access" className="btn-primary">
-                Start tracking
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-            </div>
+            <a href="#early-access"
+              className="inline-flex items-center gap-2 bg-[#176ADD] hover:bg-[#1e7ae8] text-white font-bold px-8 py-4 rounded-full text-base transition-all shadow-[0_8px_32px_rgba(23,106,221,0.35)] hover:-translate-y-0.5">
+              Start tracking
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
           </div>
 
-          {/* Right: card */}
           <div className="observe-fade" style={{ transitionDelay: "150ms" }}>
             <RetestCard />
           </div>
