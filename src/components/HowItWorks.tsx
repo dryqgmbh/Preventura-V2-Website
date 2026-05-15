@@ -11,6 +11,93 @@ const steps = [
   { number: "06", title: "Verbessern & erneut testen", body: "Plan befolgen, Fortschritt verfolgen und zum empfohlenen Zeitpunkt erneut testen. Der Score wird mit jedem Test aktualisiert.", emoji: "🔄" },
 ];
 
+/* Packaging-Foto Showcase — zeigt das echte Kit-Produkt.
+   Bild-Pfad: /public/images/kit.jpg (dort die Packaging-Foto-Datei ablegen).
+   Wenn die Datei fehlt, bleibt der gestaltete dunkle Kasten sichtbar. */
+function KitShowcase() {
+  return (
+    <div className="relative rounded-3xl overflow-hidden mb-16 observe-fade" style={{ minHeight: 420 }}>
+      {/* Hintergrundfoto — lege /public/images/kit.jpg ab */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/kit.jpg"
+        alt="Preventura Core Kit — geöffnet"
+        className="absolute inset-0 w-full h-full object-cover"
+        onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+      />
+
+      {/* Hintergrund-Fallback (sichtbar wenn kein Foto) */}
+      <div className="absolute inset-0" style={{
+        background: "linear-gradient(135deg, #0a1f3d 0%, #0e2a50 50%, #081529 100%)"
+      }}/>
+
+      {/* Gradient-Overlay über dem Foto für Lesbarkeit */}
+      <div className="absolute inset-0" style={{
+        background: "linear-gradient(to right, rgba(5,13,26,0.92) 0%, rgba(5,13,26,0.55) 50%, rgba(5,13,26,0.15) 100%)"
+      }}/>
+
+      {/* Inhalt */}
+      <div className="relative z-10 flex flex-col justify-center h-full min-h-[420px] px-10 py-12 max-w-lg">
+        <div className="inline-flex items-center gap-2 bg-blue-600/15 border border-blue-500/25 rounded-full px-4 py-1.5 mb-6 w-fit">
+          <span className="text-blue-300 text-xs font-semibold uppercase tracking-widest">Preventura Core Kit</span>
+        </div>
+
+        <h3 className="text-white font-black text-4xl sm:text-5xl tracking-tight leading-tight mb-4">
+          Alles dabei.<br/>
+          <span style={{ background: "linear-gradient(135deg, #176ADD, #22c55e)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            Sofort einsatzbereit.
+          </span>
+        </h3>
+
+        <p className="text-white/60 text-lg leading-relaxed mb-8">
+          Das Preventura Core Kit enthält alles für eine einfache kapilläre Blutentnahme zu Hause — inklusive vorfrankiertem Rückumschlag und Schritt-für-Schritt-Anleitung in der App.
+        </p>
+
+        {/* Kit-Inhalt */}
+        <div className="flex flex-wrap gap-3 mb-8">
+          {[
+            { label: "Collection Pouch", icon: "🧪" },
+            { label: "Safety Bag", icon: "🛡️" },
+            { label: "Freiumschlag", icon: "📬" },
+            { label: "QR-Aktivierung", icon: "📱" },
+          ].map((item) => (
+            <div key={item.label} className="flex items-center gap-2 rounded-full px-3.5 py-1.5"
+              style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
+              <span className="text-sm">{item.icon}</span>
+              <span className="text-white/70 text-xs font-medium">{item.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Tagline aus dem echten Packaging */}
+        <p className="text-white/30 text-sm italic">
+          &ldquo;Ihre Gesundheit. Unsere Priorität.&rdquo;
+        </p>
+      </div>
+
+      {/* Drei Schritte-Icons rechts (dekorativ, spiegelt die Kit-Anleitung wider) */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4">
+        {[
+          { num: "1", label: "Aktivieren", icon: "📱" },
+          { num: "2", label: "Probe entnehmen", icon: "🩸" },
+          { num: "3", label: "Zurücksenden", icon: "📬" },
+        ].map((s) => (
+          <div key={s.num} className="flex items-center gap-3 rounded-2xl px-4 py-3"
+            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(12px)" }}>
+            <div className="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-300 text-xs font-black shrink-0">
+              {s.num}
+            </div>
+            <div>
+              <div className="text-white text-xs font-semibold">{s.label}</div>
+            </div>
+            <span className="ml-2 text-base">{s.icon}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function HowItWorks() {
   const ref = useScrollReveal();
   return (
@@ -34,6 +121,9 @@ export default function HowItWorks() {
             </p>
           </div>
         </div>
+
+        {/* Packaging Foto Showcase */}
+        <KitShowcase />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {steps.map((step, i) => (

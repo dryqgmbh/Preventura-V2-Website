@@ -153,11 +153,25 @@ function FloatingCard({ children, className = "", style }: {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen pt-[80px] overflow-hidden flex flex-col" style={{
-      background:"radial-gradient(ellipse 100% 70% at 50% -5%, rgba(23,106,221,0.28) 0%, transparent 65%), radial-gradient(ellipse 70% 50% at 80% 60%, rgba(0,212,232,0.07) 0%, transparent 60%), #050d1a"
-    }}>
+    <section className="relative min-h-screen pt-[80px] overflow-hidden flex flex-col" style={{ background: "#050d1a" }}>
+      {/* Background photo — lege /public/images/hero-bg.jpg ab (z.B. abstraktes Gesundheitsbild) */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/hero-bg.jpg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style={{ opacity: 0.07 }}
+        onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+      />
+
+      {/* Gradient-Überlagerung über dem Bild */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: "radial-gradient(ellipse 110% 70% at 50% -5%, rgba(23,106,221,0.38) 0%, transparent 65%), radial-gradient(ellipse 70% 50% at 80% 60%, rgba(0,212,232,0.09) 0%, transparent 60%), radial-gradient(ellipse 60% 60% at 20% 80%, rgba(34,197,94,0.05) 0%, transparent 60%)"
+      }}/>
+
       {/* Grid */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
+      <div className="absolute inset-0 opacity-[0.025]" style={{
         backgroundImage:"linear-gradient(rgba(23,106,221,1) 1px, transparent 1px), linear-gradient(90deg, rgba(23,106,221,1) 1px, transparent 1px)",
         backgroundSize:"70px 70px",
       }}/>
