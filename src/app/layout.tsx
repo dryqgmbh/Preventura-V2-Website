@@ -9,15 +9,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Preventura – Digital Prevention Platform",
+  title: "Preventura – Deine digitale Präventionsplattform",
   description:
-    "Preventura combines at-home biomarker testing, certified lab analysis and a premium app experience to turn your blood values into a clear Health Score, prioritized insights and a personal retest plan.",
+    "Preventura kombiniert Heimtests zur Biomarker-Analyse, zertifizierte Laborauswertung und eine Premium-App — für einen klaren Gesundheitswert, priorisierte Erkenntnisse und einen persönlichen Retest-Plan.",
   keywords:
-    "biomarker testing, health score, preventive health, at-home blood test, health tracking, ApoB, Vitamin D, hs-CRP",
+    "Biomarker Test, Gesundheitswert, Prävention, Heimbluttest, Gesundheits-Tracking, ApoB, Vitamin D, hs-CRP, Laborbefund App",
   openGraph: {
-    title: "Preventura – Understand your health before problems become visible.",
+    title: "Preventura – Verstehe deine Gesundheit, bevor Probleme sichtbar werden.",
     description:
-      "At-home biomarker testing, certified lab analysis, app-based insights and a Preventura Health Score.",
+      "Heimtest, Laboranalyse, App-Auswertung und Preventura Gesundheitswert — alles in einer Plattform.",
     type: "website",
   },
 };
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="de" className={`${inter.variable} scroll-smooth`}>
       <body className="antialiased">{children}</body>
     </html>
   );

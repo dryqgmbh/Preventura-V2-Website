@@ -4,32 +4,32 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const faqs = [
   {
-    q: "Is Preventura a replacement for a doctor?",
-    a: "No. Preventura is designed for prevention, tracking and health optimization. It does not replace medical diagnosis or treatment. For medical concerns, always consult a qualified physician. Preventura supports informed conversations with healthcare professionals — it is not a diagnostic tool.",
+    q: "Ist Preventura ein Ersatz für einen Arzt?",
+    a: "Nein. Preventura ist für Prävention, Verlaufsverfolgung und Gesundheitsoptimierung konzipiert. Es ersetzt keine medizinische Diagnose oder Behandlung. Wende dich bei medizinischen Anliegen immer an einen qualifizierten Arzt. Preventura unterstützt informierte Gespräche mit Gesundheitsexperten — es ist kein Diagnosewerkzeug.",
   },
   {
-    q: "How does the home test work?",
-    a: "You activate your kit in the Preventura app by scanning the QR code or entering your activation code. Follow the step-by-step instructions to collect a small capillary blood sample at home. Place the sample in the prepaid return envelope and send it to the lab. Results appear in the app within a few business days.",
+    q: "Wie funktioniert der Heimtest?",
+    a: "Du aktivierst dein Kit in der Preventura-App, indem du den QR-Code scannst oder deinen Aktivierungscode eingibst. Befolge die Schritt-für-Schritt-Anleitung, um zu Hause eine kleine kapilläre Blutprobe zu entnehmen. Lege die Probe in den vorfrankierten Rückumschlag und sende sie ans Labor. Die Ergebnisse erscheinen innerhalb weniger Werktage in der App.",
   },
   {
-    q: "What is the Preventura Score?",
-    a: "The Preventura Score summarizes selected biomarker results into a single trackable number between 0 and 100. It helps you understand how your results compare to optimal ranges and highlights where improvement potential exists. The score updates after every test.",
+    q: "Was ist der Preventura Score?",
+    a: "Der Preventura Score fasst ausgewählte Biomarker-Ergebnisse in einer einzigen verfolgbaren Zahl zwischen 0 und 100 zusammen. Er hilft dir zu verstehen, wie deine Werte im Vergleich zu optimalen Bereichen stehen, und zeigt, wo Verbesserungspotenzial besteht. Der Score wird nach jedem Test aktualisiert.",
   },
   {
-    q: "Why retest regularly?",
-    a: "A single measurement is only a snapshot. Retesting allows you to see whether your interventions are working, confirm improvements and adjust your focus. Preventura's Retest Engine recommends when and how to retest based on your individual results.",
+    q: "Warum regelmäßig erneut testen?",
+    a: "Eine einzelne Messung ist nur eine Momentaufnahme. Wiederholte Tests ermöglichen es dir zu sehen, ob deine Maßnahmen wirken, Verbesserungen zu bestätigen und deinen Fokus anzupassen. Preventuras Retest Engine empfiehlt, wann und wie du erneut testen solltest — basierend auf deinen individuellen Ergebnissen.",
   },
   {
-    q: "Which biomarkers are included in Preventura Core?",
-    a: "Preventura Core focuses on key prevention markers across cardiovascular health (ApoB, LDL, HDL, triglycerides), metabolism (HbA1c), inflammation (hs-CRP), kidney function (Cystatin C, eGFR), thyroid (TSH) and vitamins and minerals (Vitamin D, Ferritin, B12). The exact panel may vary by market and laboratory setup.",
+    q: "Welche Biomarker sind in Preventura Core enthalten?",
+    a: "Preventura Core konzentriert sich auf wichtige Präventionsmarker in den Bereichen Herz-Kreislauf (ApoB, LDL, HDL, Triglyceride), Stoffwechsel (HbA1c), Entzündung (hs-CRP), Nierenfunktion (Cystatin C, eGFR), Schilddrüse (TSH) sowie Vitamine und Mineralien (Vitamin D, Ferritin, B12). Das genaue Panel kann je nach Markt und Laboraufstellung variieren.",
   },
   {
-    q: "Is my health data secure?",
-    a: "Health data is handled with a strong focus on privacy, security and GDPR-conscious processes. Your data is stored securely and is never shared with employers or third parties without your explicit consent.",
+    q: "Sind meine Gesundheitsdaten sicher?",
+    a: "Gesundheitsdaten werden mit einem starken Fokus auf Datenschutz, Sicherheit und DSGVO-konforme Prozesse behandelt. Deine Daten werden sicher gespeichert und ohne deine ausdrückliche Zustimmung niemals an Arbeitgeber oder Dritte weitergegeben.",
   },
   {
-    q: "What happens after I get my results?",
-    a: "Once results appear in the app, your Preventura Score is calculated, Top 3 Impact areas identified and a personalized Action Plan generated. The app also provides a clear retest recommendation.",
+    q: "Was passiert, nachdem ich meine Ergebnisse erhalte?",
+    a: "Sobald die Ergebnisse in der App erscheinen, wird dein Preventura Score berechnet, deine Top 3 Impact-Bereiche identifiziert und ein personalisierter Aktionsplan erstellt. Die App liefert außerdem eine klare Retest-Empfehlung.",
   },
 ];
 
@@ -68,9 +68,9 @@ export default function FAQ() {
             <span className="text-blue-700 text-xs font-semibold uppercase tracking-widest">FAQ</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-black text-[#0a1628] tracking-[-0.03em] mb-4">
-            Common questions
+            Häufige Fragen
           </h2>
-          <p className="text-[#64748b] text-lg">Everything you need to know before getting started.</p>
+          <p className="text-[#64748b] text-lg">Alles, was du vor dem Start wissen musst.</p>
         </div>
 
         <div className="space-y-3 observe-fade" style={{ transitionDelay: "100ms" }}>
@@ -81,9 +81,9 @@ export default function FAQ() {
 
         <div className="mt-8 text-center observe-fade" style={{ transitionDelay: "200ms" }}>
           <p className="text-[#64748b] text-sm">
-            More questions?{" "}
-            <a href="#early-access" className="text-[#176ADD] hover:text-[#1e7ae8] font-medium transition-colors">
-              Get in touch
+            Weitere Fragen?{" "}
+            <a href="#fruehen-zugang" className="text-[#176ADD] hover:text-[#1e7ae8] font-medium transition-colors">
+              Melde dich bei uns
             </a>
           </p>
         </div>

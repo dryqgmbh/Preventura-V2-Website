@@ -3,22 +3,22 @@ import React from "react";
 import { PreventuraIcon } from "./PreventuraLogo";
 
 const links = {
-  Product: [
-    { label: "How it works", href: "#how-it-works" },
+  Produkt: [
+    { label: "So funktioniert's", href: "#so-funktionierts" },
     { label: "Preventura Core", href: "#core" },
-    { label: "App Experience", href: "#app" },
-    { label: "Biomarkers", href: "#biomarkers" },
+    { label: "App-Erlebnis", href: "#app" },
+    { label: "Biomarker", href: "#biomarker" },
   ],
-  Platform: [
-    { label: "Health Score", href: "#score" },
+  Plattform: [
+    { label: "Gesundheitswert", href: "#score" },
     { label: "Top 3 Impact", href: "#impact" },
     { label: "Retest Engine", href: "#retest" },
-    { label: "For Companies", href: "#companies" },
+    { label: "Für Unternehmen", href: "#unternehmen" },
   ],
-  Legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Imprint", href: "#" },
-    { label: "Terms of Use", href: "#" },
+  Rechtliches: [
+    { label: "Datenschutz", href: "#" },
+    { label: "Impressum", href: "#" },
+    { label: "Nutzungsbedingungen", href: "#" },
     { label: "FAQ", href: "#faq" },
   ],
 };
@@ -28,17 +28,15 @@ export default function Footer() {
     <footer style={{ background: "#030a14", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
       <div className="max-w-[1200px] mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <PreventuraIcon width={32} height={32} />
               <span className="text-white font-extrabold text-lg tracking-tight">Preventura</span>
             </div>
             <p className="text-white/35 text-sm leading-relaxed mb-5">
-              A digital prevention platform for at-home biomarker testing, app-based insights and long-term health tracking.
+              Eine digitale Präventionsplattform für Heimtests, App-basierte Insights und langfristiges Gesundheits-Tracking.
             </p>
             <div className="flex gap-3">
-              {/* Placeholder social links */}
               {["twitter", "linkedin"].map((s) => (
                 <a
                   key={s}
@@ -57,7 +55,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
           {Object.entries(links).map(([category, items]) => (
             <div key={category}>
               <div className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-4">{category}</div>
@@ -81,10 +78,10 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/20 text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} Preventura. All rights reserved.
+            © {new Date().getFullYear()} Preventura. Alle Rechte vorbehalten.
           </p>
           <p className="text-white/20 text-xs text-center sm:text-right max-w-lg">
-            Preventura provides health information for prevention and self-tracking purposes and does not replace medical advice, diagnosis or treatment. Consult a qualified physician for medical concerns.
+            Preventura stellt Gesundheitsinformationen zur Prävention und Selbstverfolgung bereit und ersetzt keine medizinische Beratung, Diagnose oder Behandlung. Wende dich bei medizinischen Anliegen an einen qualifizierten Arzt.
           </p>
         </div>
       </div>

@@ -9,11 +9,12 @@
   --cyan: #00d4e8;
   --green: #22c55e;
   --green-light: #4ade80;
+  --red: #ef4444;
+  --red-dark: #dc2626;
   --white: #ffffff;
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -55,7 +56,7 @@ body {
   color: white;
   font-weight: 600;
   padding: 0.875rem 2rem;
-  border-radius: 0.75rem;
+  border-radius: 9999px;
   transition: all 0.2s ease;
   border: none;
   cursor: pointer;
@@ -75,7 +76,7 @@ body {
   color: white;
   font-weight: 600;
   padding: 0.875rem 2rem;
-  border-radius: 0.75rem;
+  border-radius: 9999px;
   transition: all 0.2s ease;
   border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
@@ -105,13 +106,6 @@ body {
 
 .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
 
-@keyframes drawRing {
-  from { stroke-dashoffset: 440; }
-  to { stroke-dashoffset: 100; }
-}
-
-.score-ring { animation: drawRing 2s ease-out forwards; }
-
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
@@ -119,17 +113,9 @@ body {
 
 .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.marquee-track { animation: marquee 30s linear infinite; }
-
 .card-hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
-
 .card-hover:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(23, 106, 221, 0.15);
@@ -159,12 +145,24 @@ body {
   font-size: 0.875rem;
 }
 
+/* Status indicators — app-faithful */
+.status-optimal {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.status-attention {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
 .observe-fade {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .observe-fade.visible {
   opacity: 1;
   transform: translateY(0);

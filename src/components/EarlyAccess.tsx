@@ -19,8 +19,7 @@ export default function EarlyAccess() {
   };
 
   return (
-    <section id="early-access" className="py-28 px-6 relative overflow-hidden" style={{ background: "#050d1a" }}>
-      {/* Blue glow */}
+    <section id="fruehen-zugang" className="py-28 px-6 relative overflow-hidden" style={{ background: "#050d1a" }}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full opacity-[0.12] blur-3xl pointer-events-none"
         style={{ background: "radial-gradient(ellipse, #176ADD 0%, transparent 70%)" }} />
 
@@ -32,15 +31,18 @@ export default function EarlyAccess() {
 
           <div className="inline-flex items-center gap-2 bg-green-600/10 border border-green-500/20 rounded-full px-4 py-1.5 mb-6">
             <div className="w-1.5 h-1.5 rounded-full bg-green-400 pulse-dot" />
-            <span className="text-green-400 text-xs font-semibold uppercase tracking-widest">Early Access</span>
+            <span className="text-green-400 text-xs font-semibold uppercase tracking-widest">Früher Zugang · Limitierte Plätze</span>
           </div>
 
           <h2 className="text-5xl sm:text-6xl lg:text-[72px] font-black text-white tracking-[-0.04em] leading-[1.0] mb-6">
-            Start tracking your health{" "}
-            <span className="gradient-text">with clarity.</span>
+            Verstehe deine Gesundheit.{" "}
+            <span className="gradient-text">Mit Klarheit.</span>
           </h2>
-          <p className="text-white/50 text-xl leading-relaxed mb-10 max-w-lg mx-auto">
-            Join Preventura and turn your biomarkers into a score, a plan and measurable progress.
+          <p className="text-white/50 text-xl leading-relaxed mb-4 max-w-lg mx-auto">
+            Tritt Preventura bei und verwandle deine Biomarker in einen Score, einen Plan und messbaren Fortschritt.
+          </p>
+          <p className="text-white/25 text-sm mb-8">
+            Begrenzter Frühzugang · Erste 500 Mitglieder erhalten Vorzugspreise
           </p>
 
           {!submitted ? (
@@ -49,7 +51,7 @@ export default function EarlyAccess() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
+                placeholder="Deine E-Mail-Adresse"
                 required
                 className="flex-1 bg-white/[0.07] border border-white/10 rounded-full px-5 py-3.5 text-white placeholder-white/30 text-sm outline-none focus:border-blue-500/50 focus:bg-white/[0.1] transition-all"
               />
@@ -60,7 +62,7 @@ export default function EarlyAccess() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
-                ) : "Get Early Access"}
+                ) : "Frühen Zugang sichern"}
               </button>
             </form>
           ) : (
@@ -70,13 +72,13 @@ export default function EarlyAccess() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-white font-bold text-lg mb-1">You're on the list.</h3>
-              <p className="text-white/50 text-sm">We'll reach out as soon as early access opens.</p>
+              <h3 className="text-white font-bold text-lg mb-1">Du bist auf der Liste.</h3>
+              <p className="text-white/50 text-sm">Wir melden uns, sobald der frühe Zugang geöffnet wird.</p>
             </div>
           )}
 
           <div className="flex flex-wrap gap-5 justify-center text-white/30 text-sm">
-            {["No spam", "Unsubscribe anytime", "GDPR-conscious"].map((t) => (
+            {["Kein Spam", "Jederzeit abmeldbar", "DSGVO-konform"].map((t) => (
               <span key={t} className="flex items-center gap-1.5">
                 <svg className="w-3.5 h-3.5 text-green-500/60" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
