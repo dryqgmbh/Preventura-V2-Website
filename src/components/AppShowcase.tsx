@@ -279,24 +279,24 @@ export default function AppShowcase() {
 
         {/* Bento grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 observe-fade" style={{transitionDelay:"100ms"}}>
-          <div className="md:col-span-5 glass rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[200px]">
+          <div className="md:col-span-5 rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[200px]" style={{background:"rgba(255,255,255,0.05)"}}>
             <ScoreCard/>
           </div>
-          <div className="md:col-span-7 glass rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[200px]">
+          <div className="md:col-span-7 rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[200px]" style={{background:"rgba(255,255,255,0.05)"}}>
             <DashboardCard/>
           </div>
 
-          <div className="md:col-span-5 glass rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[260px]">
+          <div className="md:col-span-5 rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[260px]" style={{background:"rgba(255,255,255,0.05)"}}>
             <ImpactCard/>
           </div>
-          <div className="md:col-span-3 glass rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[260px]">
+          <div className="md:col-span-3 rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[260px]" style={{background:"rgba(255,255,255,0.05)"}}>
             <RetestBentoCard/>
           </div>
-          <div className="md:col-span-4 glass rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[260px]">
+          <div className="md:col-span-4 rounded-3xl p-6 border border-white/[0.08] card-hover min-h-[260px]" style={{background:"rgba(255,255,255,0.05)"}}>
             <TrendsCard/>
           </div>
 
-          <div className="md:col-span-12 glass rounded-3xl p-6 border border-white/[0.08] card-hover">
+          <div className="md:col-span-12 rounded-3xl p-6 border border-white/[0.08] card-hover" style={{background:"rgba(255,255,255,0.05)"}}>
             <ActionPlanCard/>
           </div>
         </div>

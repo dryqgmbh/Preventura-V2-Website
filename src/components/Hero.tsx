@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { PreventuraIcon } from "./PreventuraLogo";
 
 /* ── Score-Ring Farbe je nach Wert (exakt wie App) ── */
 function getScoreRingColor(score: number) {
@@ -11,7 +10,7 @@ function getScoreRingColor(score: number) {
 
 /* ── Exaktes App Phone Mockup nach Figma ── */
 function PhoneMockup() {
-  const score = 76;
+  const score = 62;
   const ring = getScoreRingColor(score);
   const radius = 60;
   const circ = 2 * Math.PI * radius;
@@ -38,20 +37,11 @@ function PhoneMockup() {
         </div>
 
         {/* App header */}
-        <div className="flex justify-between items-center px-5 pt-1 pb-2">
-          <div className="flex items-center gap-2">
-            <PreventuraIcon width={20} height={20}/>
-            <span className="text-white text-[11px] font-bold tracking-widest uppercase">Preventura</span>
-          </div>
-          <button className="flex items-center gap-1 border border-blue-500/30 bg-blue-500/10 rounded-full px-2.5 py-1">
-            <span className="text-[10px] text-blue-300 font-semibold">+ Test hinzufügen</span>
-          </button>
-        </div>
-
-        {/* Greeting */}
-        <div className="px-5 pb-0">
-          <p className="text-white/40 text-[11px]">Hallo,</p>
-          <h3 className="text-white font-black text-[18px] tracking-tight leading-tight">Markus</h3>
+        <div className="flex items-center gap-2 px-5 pt-1 pb-2 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+          <svg className="w-4 h-4 text-white/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7"/>
+          </svg>
+          <span className="text-white text-[12px] font-bold">Health Check — Mai 2025</span>
         </div>
 
         {/* Score ring */}
@@ -74,14 +64,20 @@ function PhoneMockup() {
               <span className="text-white/40 text-[8px] uppercase tracking-widest font-semibold">Gesundheitswert</span>
               <span className="text-white font-black text-[40px] leading-none mt-0.5">{score}</span>
               <span className="text-white/30 text-[11px]">/100</span>
-              <div className="mt-1.5 flex items-center gap-1 bg-green-500/15 border border-green-500/25 rounded-full px-2 py-0.5">
-                <svg className="w-2.5 h-2.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 10l7-7 7 7"/>
-                </svg>
-                <span className="text-green-400 text-[9px] font-bold">+11 seit letztem Test</span>
-              </div>
             </div>
           </div>
+        </div>
+
+        {/* Optimal / Auffällig badges */}
+        <div className="flex items-center gap-2 px-5 pb-3">
+          <span className="text-[11px] font-bold px-2.5 py-1 rounded-full"
+            style={{ background: "rgba(34,197,94,0.15)", color: "#22c55e", border: "1px solid rgba(34,197,94,0.25)" }}>
+            2 Optimal
+          </span>
+          <span className="text-[11px] font-bold px-2.5 py-1 rounded-full"
+            style={{ background: "rgba(239,68,68,0.15)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.25)" }}>
+            3 Auffällig
+          </span>
         </div>
 
         {/* Potential card */}
@@ -91,22 +87,22 @@ function PhoneMockup() {
           <div className="flex items-center gap-2">
             <div className="text-center shrink-0">
               <div className="text-white/30 text-[8px] uppercase">Aktuell</div>
-              <div className="text-white font-black text-[17px] leading-tight">76</div>
+              <div className="text-white font-black text-[17px] leading-tight">62</div>
             </div>
             <div className="flex-1 space-y-1">
               <div className="h-1.5 bg-white/[0.07] rounded-full overflow-hidden">
-                <div className="h-full rounded-full bg-gradient-to-r from-blue-500 to-green-400" style={{width:"76%"}}/>
+                <div className="h-full rounded-full bg-gradient-to-r from-blue-500 to-green-400" style={{width:"62%"}}/>
               </div>
               <div className="h-1.5 bg-white/[0.07] rounded-full overflow-hidden">
-                <div className="h-full rounded-full" style={{width:"83%",background:"linear-gradient(90deg,rgba(23,106,221,0.5),#22c55e)"}}/>
+                <div className="h-full rounded-full" style={{width:"71%",background:"linear-gradient(90deg,rgba(23,106,221,0.5),#22c55e)"}}/>
               </div>
             </div>
             <div className="text-center shrink-0">
               <div className="text-white/30 text-[8px] uppercase">Prognose</div>
-              <div className="text-green-400 font-black text-[17px] leading-tight">83</div>
+              <div className="text-green-400 font-black text-[17px] leading-tight">71</div>
             </div>
             <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center shrink-0">
-              <span className="text-white text-[9px] font-black">+7</span>
+              <span className="text-white text-[9px] font-black">+9</span>
             </div>
           </div>
         </div>
